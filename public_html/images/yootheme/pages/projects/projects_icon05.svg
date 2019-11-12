@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="32px" viewBox="24 24 32 32" enable-background="new 24 24 32 32" xml:space="preserve">
+<g id="pages">
+	<g>
+		<path fill="#A5A39F" d="M48,24H37c-1.104,0-2,0.896-2,2h11v8h8v16h-7v2h7c1.104,0,2-0.896,2-2V32L48,24z M48,32v-5.172L53.171,32
+			H48z M26,28c-1.104,0-2,0.896-2,2v24c0,1.104,0.896,2,2,2h17c1.104,0,2-0.896,2-2V36l-8-8H26z M43,54H26V30h9v8h8V54z M37,36
+			v-5.172L42.171,36H37z"/>
+	</g>
+</g>
+</svg>

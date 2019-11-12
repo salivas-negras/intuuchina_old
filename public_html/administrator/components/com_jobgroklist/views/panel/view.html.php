@@ -1,0 +1,67 @@
+<?php
+/**
+ *
+ *
+ * This is the view.html.php file for jobgroklist
+ *
+ * Created: November 11, 2014, 3:25 pm
+ *
+ * Subversion Details
+ * $Date: 2014-09-20 21:53:34 -0500 (Sat, 20 Sep 2014) $
+ * $Revision: 6260 $
+ * $Author: bobsteen $
+ *
+ * @author TK Tek, LLC. info@jobgrok.com
+ * @version 3.1-1.2.58
+ * @package com_jobgroklist
+ *
+ * @copyright Copyright {c} 2008-2014
+ * @license GNU Public License Version 2
+ *
+ * This file is part of JobGrok.
+ *
+ * JobGrok is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * JobGrok is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with JobGrok.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+defined('_JEXEC') or die('Restricted access');
+
+jimport('joomla.application.component.view');
+
+/**
+ *
+ * Posting View
+ *
+ */
+class JobgroklistViewPanel extends JViewLegacy
+{
+    /**
+     *
+     * Renders the View
+     *
+     */
+    function display($tpl = null) {
+        $getnews = $this->get('News');
+        $this->assignRef('getnews', $getnews);
+        
+        
+
+        JToolBarHelper::title(JTEXT::_('COM_JOBGROKLIST_VIEWS_PANEL_VIEW_HTML_JOBGROKLIST'),'postings');
+
+        JToolBarHelper :: preferences("com_jobgroklist",'400');
+
+        parent :: display($tpl);
+    }
+}
+?>

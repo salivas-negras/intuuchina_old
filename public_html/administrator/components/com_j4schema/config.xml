@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <fieldset name="params" label="COM_J4SCHEMA_PARAMS" description="">
+      <field name="downloadid" type="text" default="" size="30"
+              label="Download ID"
+              description ="COM_J4SCHEMA_DOWNLOADID_DESCR" />
+    </fieldset>
+    <fieldset
+        name="access"
+        label="JCONFIG_PERMISSIONS_LABEL"
+        description="JCONFIG_PERMISSIONS_DESC"
+        >
+
+        <field
+            name="rules"
+            type="rules"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            class="inputbox"
+            filter="rules"
+            component="com_j4schema"
+            section="component" />
+    </fieldset>
+    
+    <params>
+       <param name="downloadid" type="text" default="" size="30"
+                  label="Download ID"
+                  description ="COM_J4SCHEMA_DOWNLOADID_DESCR" />
+    </params>
+</config>

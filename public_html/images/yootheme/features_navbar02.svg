@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="800px" height="400px" viewBox="0 0 800 400" enable-background="new 0 0 800 400" xml:space="preserve">
+<rect fill="#F5F5F5" width="800" height="400"/>
+<rect x="80" y="120" fill="#FFFFFF" width="640" height="80"/>
+<rect fill="#BBBBBB" width="800" height="40"/>
+<g>
+	<rect x="80" y="60" fill="#BBBBBB" width="42" height="40"/>
+	<g>
+		<polygon fill="#FFFFFF" points="111,82.5 106.5,82.5 110,89 101,89 92,89 95.5,82.5 91,82.5 85,93 101,93 117,93 		"/>
+		<polygon fill="#FFFFFF" points="98,78.495 101,73 104,78.495 108.711,78.5 101,65 93.289,78.5 		"/>
+	</g>
+</g>
+<g>
+	<circle fill="#EEEEEE" cx="686.5" cy="151.5" r="2.5"/>
+	<circle fill="#EEEEEE" cx="686.5" cy="159.5" r="2.5"/>
+	<circle fill="#EEEEEE" cx="686.5" cy="167.5" r="2.5"/>
+</g>
+<rect x="102" y="155" fill="#EEEEEE" width="60" height="10"/>
+<rect x="182" y="155" fill="#EEEEEE" width="60" height="10"/>
+<rect x="262" y="155" fill="#EEEEEE" width="60" height="10"/>
+</svg>

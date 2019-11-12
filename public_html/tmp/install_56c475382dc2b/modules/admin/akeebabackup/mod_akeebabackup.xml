@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5.0" type="module" client="administrator" method="upgrade">
+	<name>MOD_AKEEBABACKUP</name>
+	<author>Nicholas K. Dionysopoulos</author>
+	<authorEmail>nicholas@dionysopoulos.me</authorEmail>
+	<authorUrl>http://www.akeebabackup.com</authorUrl>
+	<creationDate>2016-02-01</creationDate>
+	<copyright>Copyright (c)2009-2016 Nicholas K. Dionysopoulos</copyright>
+	<license>GNU GPL v3</license>
+	<version>4.6.0</version>
+	<description>MOD_AKEEBABACKUP_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_akeebabackup">mod_akeebabackup.php</filename>
+		<folder>css</folder>
+		<folder>fields</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_akeebabackup.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_akeebabackup.sys.ini</language>
+	</languages>
+	<params>
+		<param name="enablewarning" type="radio" label="MOD_AKEEBABACKUP_WARNINGS_LABEL"
+			   description="MOD_AKEEBABACKUP_WARNINGS_DESC">
+			<option value="0">MOD_AKEEBABACKUP_LBL_YES</option>
+			<option value="1">MOD_AKEEBABACKUP_LBL_NO</option>
+		</param>
+		<param name="warnfailed" type="radio" label="MOD_AKEEBABACKUP_WARNFAILED_LABEL"
+			   description="MOD_AKEEBABACKUP_WARNFAILED_DESC">
+			<option value="0">MOD_AKEEBABACKUP_LBL_YES</option>
+			<option value="1">MOD_AKEEBABACKUP_LBL_NO</option>
+		</param>
+		<param name="maxbackupperiod" type="text" label="MOD_AKEEBABACKUP_PERIOD_LABEL"
+			   description="MOD_AKEEBABACKUP_PERIOD_DESC" default="24" size="5"/>
+		<param name="profileid" type="sql" default="1"
+			   label="MOD_AKEEBABACKUP_PROFILE_LABEL"
+			   description="MOD_AKEEBABACKUP_PROFILE_DESC"
+			   key_field="id"  value_field="description"  translate="0"
+			   query="SELECT `id`, `description` FROM `#__ak_profiles`"
+		/>
+	</params>
+	<config addfieldpath="/administrator/modules/mod_akeebabackup/fields">
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="enablewarning" type="radio" label="MOD_AKEEBABACKUP_WARNINGS_LABEL"
+					   description="MOD_AKEEBABACKUP_WARNINGS_DESC">
+					<option value="0">MOD_AKEEBABACKUP_LBL_YES</option>
+					<option value="1">MOD_AKEEBABACKUP_LBL_NO</option>
+				</field>
+				<field name="warnfailed" type="radio" label="MOD_AKEEBABACKUP_WARNFAILED_LABEL"
+					   description="MOD_AKEEBABACKUP_WARNFAILED_DESC">
+					<option value="0">MOD_AKEEBABACKUP_LBL_YES</option>
+					<option value="1">MOD_AKEEBABACKUP_LBL_NO</option>
+				</field>
+				<field name="maxbackupperiod" type="number" label="MOD_AKEEBABACKUP_PERIOD_LABEL"
+					   description="MOD_AKEEBABACKUP_PERIOD_DESC" default="24" size="5" />
+				<field name="profileid" type="backupprofiles" default="1"
+					   label="MOD_AKEEBABACKUP_PROFILE_LABEL"
+					   description="MOD_AKEEBABACKUP_PROFILE_DESC"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</install>

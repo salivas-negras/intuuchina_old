@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.6/component-install.dtd">
+<extension type="module" method="upgrade" version="1.6">
+    <name>Module - JGListPostings</name>
+    <creationDate>March 23, 2014, 9:05 pm</creationDate>
+    <author>TK Tek, LLC.</author>
+    <authorEmail>info@jobgrok.com</authorEmail>
+    <authorURL>www.jobgrok.com</authorURL>
+    <copyright>Copyright {c} 2008-2014</copyright>
+    <license>GNU Public License Version 2</license>
+    <version>3.1-1.0.12</version>
+    <description><![CDATA[Thank you for installing <a href="http://www.jobgrok.com">Job Grok Listings <em>Postings</em> Module V3.1-1.0.12</a>.]]></description>>
+    <files>
+        <filename module="mod_jobgroklistpostings">mod_jobgroklistpostings.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>router.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.mod_jobgroklistpostings.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name='basic'>
+                <field name="menutype" type="menuitem" default="" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_ASSOCIATED_MENU' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_IN_ORDER_FOR_THE_POSTING_TO_DISPLAY_AND_LINK_CORRECTLY_THIS_MUST_BE_LINKED_TO_THE_ALL_POSTINGS_MENU_ITEM' />
+                <field name="top_n" type="text" default="5" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_JOBS_TO_SHOW' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_MAXIMUM_NUMBER_OF_JOBS_TO_SHOW_IN_LISTING' />
+                <field name="featured_jobs_only" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_FEATURED' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOW_FEATURED_JOBS_ONLY'>
+                    <option value="0">Yes</option>
+                    <option value="1">No</option>
+                </field>                
+                <field name="no_posting_text" type="text" default="" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_NO_POSTINGS_TEXT' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_ENTER_TEXT_TO_DISPLAY_WHEN_THERE_ARE_NO_POSTINGS' />
+                <field name="company_id" type="sql" default="" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_COMPANY_FILTER' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_COMPANY_ID_TO_FILTER_ON' query="select null as id, '- Filter on Company -' as company union select id, company from #__tst_jglist_companies" key_field="id" value_field="company" />
+                <field name="category_id" type="sql" default="" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_CATEGORY_FILTER' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_CATEGORY_ID_TO_FILTER_ON' query="select null as id, '- Filter on Category -' as category union select c.id, sc.category FROM #__tst_jglist_categories c JOIN #__tst_jglist_static_category sc ON c.code=sc.id" key_field="id" value_field="category" />
+                <field name="show_company" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_COMPANY' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_JOB_COMPANY'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>
+                </field>
+                <field name="show_company_label" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_COMPANY_LABEL' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_JOB_COMPANY'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>
+                </field>
+                <field name="show_jobcode" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_JOB_CODE' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_JOB_CODE'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>
+                </field>
+                <field name="show_jobcode_label" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_JOB_CODE_LABEL' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_JOB_CODE'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>
+                </field>
+                <field name="show_location" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_LOCATION' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_LOCATION'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>
+                </field>
+                <field name="show_location_label" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_LOCATION_LABEL' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_LOCATION'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>
+                </field>
+                <field name="show_category" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_CATEGORY' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_CATEGORY'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>                    
+                </field>
+                <field name="show_category_label" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_CATEGORY_LABEL' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_CATEGORY'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>                    
+                </field>
+                <field name="show_department" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_DEPARTMENT' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_DEPARTMENT'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>                    
+                </field>
+                <field name="show_department_label" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_DEPARTMENT_LABEL' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_DEPARTMENT'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>                    
+                </field>
+                <field name="show_shift" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHIFT' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_SHIFT'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>                    
+                </field>
+                <field name="show_shift_label" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHIFT_LABEL' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_SHIFT'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>                    
+                </field>
+                <field name="show_payrate" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_PAY_RATE' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_PAY_RATE'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>                    
+                </field>
+                <field name="show_payrate_label" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_PAY_RATE_LABEL' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_PAY_RATE'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>                    
+                </field>
+                <field name="show_posting_date" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_POSTING_DATE' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_POSTING_DATE'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>
+                </field>
+                <field name="show_posting_date_label" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_POSTING_DATE_LABEL' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_POSTING_DATE'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>
+                </field>
+                <field name="show_closing_date" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_CLOSING_DATE' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_CLOSING_DATE'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>
+                </field>
+                <field name="show_closing_date_label" type="radio" class="btn-group" default="1" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_CLOSING_DATE_LABEL' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_SHOWHIDE_CLOSING_DATE'>
+                    <option value="0">Hide</option>
+                    <option value="1">Show</option>
+                </field>
+                <field name="mod_layout" type="radio" class="btn-group" default="normal" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_LAYOUT' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_DISPLAY_LAYOUT'>
+                    <option value="normal">Normal</option>
+                    <option value="list">Unordered List</option>
+                    <option value="table">Table</option>
+                    <option value="horizontal">Horizontal</option>
+                </field>
+                <field name="left_padding" type="text" default="" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_LEFT_PADDING' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_ADD_A_VALUE_GREATER_THAN_ZERO_TO_ADJUST_LEFT_PADDING_IN_MODULE_LEAVE_BLANK_FOR_DEFAULT' />
+            </fieldset>
+            <fieldset name='advanced'>
+                <field name="moduleclass_sfx" type="text" label='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_COM_MODULES_FIELD_MODULECLASS_SFX_LABEL' description='COM_JOBGROKLISTPOSTINGS_MODULES_MOD_JOBGROKPOSTINGS_MOD_JOBGROKPOSTINGS_XML_COM_MODULES_FIELD_MODULECLASS_SFX_DESC' />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
+

@@ -1,0 +1,2 @@
+<?php die("Access Denied"); ?>#x#a:2:{s:6:"result";s:108:"
+	<img src="images/intuu/logo/logo_intuuchina_150.png" alt="logo intuuchina" class="uk-responsive-height" />";s:6:"output";a:3:{s:4:"body";s:0:"";s:4:"head";a:0:{}s:13:"mime_encoding";s:9:"text/html";}}

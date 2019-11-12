@@ -1,0 +1,2 @@
+[22-Jan-2016 03:59:28 America/Denver] PHP Fatal error:  Class 'Warp\Helper\AbstractHelper' not found in /home/intuuchi/public_html/templates/yoo_avion/warp/systems/joomla/src/Warp/Joomla/Helper/SystemHelper.php on line 18
+[22-Jan-2016 03:59:30 America/Denver] PHP Fatal error:  Class 'Warp\Helper\AbstractHelper' not found in /home/intuuchi/public_html/templates/yoo_avion/warp/systems/joomla/src/Warp/Joomla/Helper/WidgetsHelper.php on line 18
